@@ -1,10 +1,19 @@
 <script>
 	export let name;
+	const clickTitle = () =>{
+		console.log("OK");
+	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
+{#if name === 'Mike'}
+	<h1 class="isMike" on:click={clickTitle}>Hello {name}!</h1>
+{:else}
+	<h1 on:click={clickTitle}>Hello {name}!</h1>	
+{/if}
+
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<input type="text" value={name} >
 </main>
 
 <style>
@@ -26,5 +35,8 @@
 		main {
 			max-width: none;
 		}
+	}
+	.isMike{
+		color: #ff2fff
 	}
 </style>
